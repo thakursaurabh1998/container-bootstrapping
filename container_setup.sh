@@ -25,6 +25,12 @@ else
     echo "copying dotfiles to home directory"
     cp -r ./dotfiles/. "/home/$USER_NAME/."
 
+    echo "config pathogen for vim"
+    wget https://raw.githubusercontent.com/tpope/vim-pathogen/master/autoload/pathogen.vim -P "/home/$USER_NAME/.vim/autoload/"
+
+    echo "installing gruvbox theme for vim"
+    git clone https://github.com/morhetz/gruvbox.git "/home/$USER_NAME/.vim/bundle/gruvbox"
+
     echo "installing zsh"
     sudo -u $USER_NAME sudo apt install -y zsh
     sudo -u $USER_NAME zsh --version
